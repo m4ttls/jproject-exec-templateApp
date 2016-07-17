@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation=
+		"http://www.springframework.org/schema/beans	http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/mvc 		http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/tx 		http://www.springframework.org/schema/tx/spring-tx.xsd 
+		http://www.springframework.org/schema/context	http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/task 		http://www.springframework.org/schema/task/spring-task.xsd
+		http://www.springframework.org/schema/util 		http://www.springframework.org/schema/util/spring-util.xsd
+		http://www.springframework.org/schema/aop 		http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://www.springframework.org/schema/security	http://www.springframework.org/schema/security/spring-security.xsd">
+
+	<!-- package por defecto -->
+	<context:component-scan base-package="ar.com.templateApp.controllers, com.curcico.jproject.webutils.controllers" />  
+
+	<!-- contexto para llamar a recursos estaticos -->
+	<mvc:resources mapping="/resources/**" location="/resources/" />	
+	
+	<mvc:annotation-driven>
+        <mvc:message-converters>
+			<!-- Default converters -->
+			<bean class="org.springframework.http.converter.StringHttpMessageConverter"/>
+			<bean class="org.springframework.http.converter.FormHttpMessageConverter"/>
+			<bean class="org.springframework.http.converter.ByteArrayHttpMessageConverter"/>
+			<bean class="org.springframework.http.converter.xml.SourceHttpMessageConverter"/>
+			
+            <!-- Use the HibernateAware mapper instead of the default -->
+            <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+                <property name="objectMapper">
+                    <bean class="com.curcico.jproject.webutils.utils.HibernateAwareObjectMapper" />
+                </property>
+            </bean>
+            
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+    
+	<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+	  <property name="viewResolvers">
+	    <list>
+	      <bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+	        <property name="viewClass" value="org.springframework.web.servlet.view.tiles2.TilesView"/>
+	      </bean>
+	    </list>
+	  </property>	  
+	</bean>
+	
+	<!-- tiles de spring -->
+	<bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
+		<property name="definitions">
+			<list>
+				<value>/WEB-INF/tiles.xml</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- Defino mensajes (resources boundle) -->
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename" value="messages" />
+	</bean>
+
+	<!-- activar anotaciones mvc -->
+	<mvc:annotation-driven content-negotiation-manager="contentNegotiationManager"/>
+
+	<bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
+    	<property name="favorPathExtension" value="false" />
+	</bean>
+ 	
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+    	<property name="defaultEncoding" value="utf-8"/>
+	</bean>
+	    
+</beans>

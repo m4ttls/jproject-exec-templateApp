@@ -1,0 +1,398 @@
+
+body {
+	margin: 0;
+	padding: 0;
+	height: 100%
+}
+
+/*
+ *   Inicio menu
+ */
+ul.vert-one {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	display: block;
+	font: bold 12px Helvetica, Verdana, Arial, sans-serif;
+	line-height: 25px;
+	width: 100%;
+}
+
+ul.vert-one li {
+	margin: 0;
+	padding: 0;
+	border-top: 1px solid #050609;
+	border-bottom: 1px solid #3b486b;
+}
+
+ul.vert-one li a {
+	display: block;
+	text-decoration: none;
+	color: #fff;
+	background: #29324a;
+	padding: 0 0 0 20px;
+	width: 86%;
+}
+
+ul.vert-one li a:hover {
+	background: #323d5b url("../images/vert-one_arrow.gif") no-repeat 0 9px;
+}
+
+/* Ver en un futuro que la celda seleccionada quede con el style: current */
+ul.vert-one li a.current,ul.vert-one li a.current:hover {
+	background: #933 url("../images/vert-one_arrow.gif") no-repeat 0 9px;
+}
+/*
+ *   Fin menu
+ */
+
+
+table.formTable {
+	width: 100%;
+	background-color: #FFFFFF;
+}
+
+td.formTitulo {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 85%;
+	font-weight: bold;
+	background-color: #3b486b;
+	padding: 0px;
+	padding-left: 10px; 
+	width: 100%;
+	height: 25px;
+    border-spacing: 1px;
+    color: #edeff5;
+}
+
+td.formSubTitulo {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 85%;
+	font-weight: bold;
+	background-color: #d8d8d8;
+	padding: 0px;
+	padding-left: 10px; 
+	width: 100%;
+	height: 25px;
+    border-spacing: 1px;
+    color: #6e6e6e;
+}
+
+td.formTd {
+	padding: 2px;
+    border-spacing: 1px;
+	background-color: #F2F2F2;
+}
+
+td.formTdSuccess {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 75%;
+	color: green;
+	font-weight: bold;
+	height: 30px;
+}
+
+.formLabel {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 75%;
+}
+
+.error {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 75%;
+	color: red;
+}
+
+table.contenedorNumeroDePaginas {
+	border: 0px;
+	border-collapse: collapse;
+	padding: 0px;
+}
+
+table.numeroDePaginas {
+	border: 0px;
+	border-collapse: collapse;
+	padding: 0px;
+}
+
+td.numeroDePaginas {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:   75%;
+	width:       20px;
+}
+
+a.letra1 {
+	font-family:      Arial, Helvetica, sans-serif;
+	font-size:        75%;
+	text-decoration:  none;
+	color:            black;
+}
+
+a.letra1Negrita {
+	font-family:      Arial, Helvetica, sans-serif;
+	font-size:        75%;
+	text-decoration:  none;
+	color:            black;
+	font-weight:      bold;
+}
+
+a.usuario {
+	font-family:      Arial, Helvetica, sans-serif;
+	font-size:        75%;
+	text-decoration:  none;
+	color:            white;
+}
+
+a.usuarioNegrita {
+	font-family:      Arial, Helvetica, sans-serif;
+	font-size:        75%;
+	text-decoration:  none;
+	color:            white;
+	font-weight:      bold;
+}
+
+a.numeroDePaginas:link {
+	/* Applies to unvisited links of class mainNav */
+	font-family:      Arial, Helvetica, sans-serif;
+	font-size:        75%;
+	text-decoration:  none;
+	color:            black;
+	/*
+	font-weight:      bold;
+	*/
+}
+ 
+a.numeroDePaginas:visited {
+	/* Applies to visited links of class mainNav */
+	font-family:      Arial, Helvetica, sans-serif;
+	font-size:        75%;
+	text-decoration:  none;
+	color:            black;
+	/*
+	font-weight:      bold;
+	*/
+}
+ 
+a.numeroDePaginas:hover   {
+	/* Applies to links under the pointer of class mainNav */
+	font-family:      Arial, Helvetica, sans-serif;
+	font-size:        75%;
+	text-decoration:  none;
+	color:            black;
+	/*
+	font-weight:      bold;
+	*/
+}
+
+a.numeroDePaginas:active  {
+	/* Applies to activated links of class mainNav */
+	font-family:      Arial, Helvetica, sans-serif;
+	font-size:        75%;
+	text-decoration:  none;
+	color:            black;
+	/*
+	font-weight:      bold;
+	*/
+}
+
+a.numeroDePaginasActive {
+	/* Applies to unvisited links of class mainNav */
+	font-family:      Arial, Helvetica, sans-serif;
+	font-size:        75%;
+	text-decoration:  none;
+	font-weight:      bold;
+	color:            black;
+}
+
+
+table.data {
+	border: 0px;
+	border-collapse: 1px;
+	padding: 0px;
+}
+
+.data tr:hover td {
+    background-color:#ccc;
+}
+
+td.dataCant {
+	font-family:      Arial, Helvetica, sans-serif;
+	font-size:        75%;
+}
+
+td.dataHeader {
+	background-color: #BDBDBD;
+	font-family:      Arial, Helvetica, sans-serif;
+	font-size:        75%;
+	font-weight:      bold;
+	height:           25px;
+	text-align:       center; 
+}
+
+td.dataFieldPar {
+	font-family:      Arial, Helvetica, sans-serif;
+	font-size:        75%;
+	background-color: #E6E6E6;
+	height:           20px; 
+}
+
+td.dataFieldImpar {
+	font-family:      Arial, Helvetica, sans-serif;
+	font-size:        75%;
+	background-color: #FAFAFA;
+	height:           20px; 
+}
+
+table.catastro {
+	width: 1020px;
+	padding: 2px; 
+    border-spacing: 1px;
+}
+
+td.catastroTitulo {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 85%;
+	font-weight: bold;
+	height: 25px;
+	vertical-align: middle;
+	text-align: center;
+	padding: 2px;
+	background-color: #00BFFF;
+    border-spacing: 1px;
+}
+
+td.catastroDataPar {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 80%;
+	vertical-align: middle;
+	text-align: left;
+	padding: 2px; 
+    border-spacing: 1px;
+	background-color: #BDBDBD;
+	width: 150px;
+}
+
+td.catastroDataImpar {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 80%;
+	vertical-align: middle;
+	text-align: left;
+	padding: 2px; 
+    border-spacing: 1px;
+	background-color: #E6E6E6;
+	width: 150px;
+}
+
+td.catastroCantidadPar {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 80%;
+	vertical-align: middle;
+	text-align: center;
+	padding: 2px; 
+    border-spacing: 1px;
+	background-color: #BDBDBD;
+	width: 60px;
+}
+
+td.catastroCantidadImpar {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 80%;
+	vertical-align: middle;
+	text-align: center;
+	padding: 2px; 
+    border-spacing: 1px;
+	background-color: #E6E6E6;
+	width: 60px;
+}
+
+td.catastroInputDataPar {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 75%;
+	vertical-align: middle;
+	text-align: left;
+	padding: 2px; 
+    border-spacing: 1px;
+	background-color: #BDBDBD;
+	width: 150px;
+}
+
+td.catastroInputDataImpar {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 75%;
+	vertical-align: middle;
+	text-align: left;
+	padding: 2px; 
+    border-spacing: 1px;
+	background-color: #E6E6E6;
+	width: 150px;
+}
+
+td.catastroPie {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 75%;
+	vertical-align: middle;
+	text-align: center;
+	padding: 2px; 
+    border-spacing: 1px;
+	background-color: #848484;
+	width: 100%;
+}
+
+/* Container Vistas*/
+
+td.containerVistas {
+	width: 8%;
+	vertical-align: top;
+	background-color: #FAFAFA;
+}
+
+/* Vistas */
+table.vistas {
+	width: 100%;
+	padding: 2px; 
+    border-spacing: 1px;
+}
+
+td.vistas {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 75%;
+	vertical-align: middle;
+	text-align: center;
+	padding: 2px; 
+    border-spacing: 1px;
+	background-color: #D8D8D8;
+}
+
+td.vistas:hover {
+    background-color: #848484;
+    cursor: pointer;
+}
+
+.dataTextCatastro {
+    width: 40px;
+}
+
+.dataTextNroRatCatastro {
+    width: 150px;
+}
+
+table.catastroButtons {
+	width: 960px;
+	padding: 0px; 
+    border-spacing: 0px;
+}
+
+/* Agrupa */
+table.agrupa {
+	width: 100%;
+}
+
+td.containerAgrupa {
+	border: 1px solid #3b486b;	
+}
+
+div.borderSolid {
+	border:2px solid;
+}
+
+a.event_link:hover{ cursor:pointer}
