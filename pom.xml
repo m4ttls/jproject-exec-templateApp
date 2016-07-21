@@ -2,21 +2,20 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>ar.com.template</groupId>
-  <artifactId>templateApp</artifactId>
+  <artifactId>jproject-templateApp</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
-  <name>templateApp</name>
-  <description>templateApp</description>
+  <name>jproject-templateApp</name>
+  <description>Template de aplicaciones basadas en jproject</description>
 
   <organization>
   	<name>templateApp</name>
   	<url>http://templateApp.com.ar</url>
   </organization>
   <scm>
-  	<url>https://svn.riouxsvn.com/templateApp/trunk/templateApp</url>
-  	<connection>https://svn.riouxsvn.com/templateApp/trunk/templateApp</connection>
-  	<developerConnection>https://svn.riouxsvn.com/templateApp/trunk/templateApp</developerConnection>
-  	<tag>https://svn.riouxsvn.com/templateApp/tags</tag>
+  	<url>https://github.com/acurci/jproject-templateApp</url>
+  	<connection>scm:git:git://github.com/acurci/jproject-templateApp</connection>
+  	<developerConnection>scm:git@github.com/acurci/jproject-templateApp</developerConnection>
   </scm>
 
 	<properties>
@@ -189,4 +188,5 @@
 			<version>1.3.5</version>
 		</dependency>
   </dependencies>
+  <url>https://github.com/acurci/jproject-templateApp</url>
 </project>
