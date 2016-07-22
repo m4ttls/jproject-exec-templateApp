@@ -20,10 +20,11 @@ import com.curcico.jproject.core.entities.TimeRangeEntity;
 @Entity
 @Table(name = "TBL_EJEMPLO")
 @Where(clause="DELETED IS NULL")
-@SQLDelete(sql="UPDATE TBL_EJEMPLO SET DELETED = '1' WHERE ID = ? AND VERSION = ?")
+@SQLDelete(sql="UPDATE TBL_EJEMPLO SET DELETED = CURRENT_TIMESTAMP WHERE ID = ? AND VERSION = ?")
 public class Ejemplo extends TimeRangeEntity {
 
 	private String codigo;
+	private String descripcion;
 	
 	public Ejemplo() {
 		super();
@@ -37,12 +38,21 @@ public class Ejemplo extends TimeRangeEntity {
 		return super.id;
 	}
 
-	@Column(name = "CODIGO", nullable=true, length=250, unique=false)
+	@Column(name = "CODIGO", nullable=false, length=10, unique=true)
 	public String getCodigo() {
 		return codigo;
 	}
 
 	public void setCodigo(String codigo) {
 		this.codigo = codigo;
+	}
+	
+	@Column(name = "CODIGO", nullable=true, length=250, unique=false)
+	public String getDescripcion() {
+		return descripcion;
+	}
+	
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
 	}
 }

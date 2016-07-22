@@ -9,9 +9,5 @@ import ar.com.templateApp.entities.Ejemplo;
 @Repository
 public class EjemploDaoImpl extends TimeRangeEntityDaoImpl<Ejemplo>
 							implements EjemploDao{
-
-	// Constructor
-	public EjemploDaoImpl() {
-		super(Ejemplo.class);
-	}	
+	
 }

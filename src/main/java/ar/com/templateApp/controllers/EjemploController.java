@@ -22,36 +22,21 @@ import ar.com.templateApp.services.EjemploService;
  */
 @Controller
 @RequestMapping("/ejemplo")
-public class NoticiaController {
+public class EjemploController {
 	
 	Logger logger = Logger.getLogger(getClass());
 
 	@Autowired
 	EjemploService service;
 	
-	/** Redirección a una pagina
-	 * @param modelMap
-	 * @return
-	 * @throws Exception
-	 */
-	@RequestMapping(value="/unsegurePage.htm", method = RequestMethod.GET)
-	public ModelAndView showMobile(ModelMap modelMap, 
-			@RequestParam(value = "id", required = false) Integer id) 
-					throws Exception {
-        ModelAndView mv = new ModelAndView("unsegurePage");
-        mv.addObject("id", id);
-        return mv;
-	}
-	
-	
-	/** Servicio web
-	 * */
 	@PreAuthorize("hasAuthority('EJEMPLO_GET')")
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public @ResponseBody ResponseEntity<Object> getAscendenteSigea(@PathVariable Integer id) 
 													throws Exception {
-		return new ResponseEntity<Object>(service.findById(id), HttpStatus.OK);
+		return new ResponseEntity<Object>(service.loadEntityById(id), HttpStatus.OK);
 	}
+	
+	
 
 
 }
