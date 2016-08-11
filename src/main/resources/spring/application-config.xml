@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <beans xmlns="http://www.springframework.org/schema/beans"
 		xmlns:p="http://www.springframework.org/schema/p"
 		xmlns:context="http://www.springframework.org/schema/context"
@@ -26,27 +25,25 @@
 	<tx:annotation-driven />
 	<task:annotation-driven/>
 
-	<!-- JNDI DataSource for JEE environments  -->
-	<jee:jndi-lookup id="dataSource" jndi-name="jdbc/templateApp"/>	
-	
-	<!-- Configuracion de Session Factory -->
+    <bean class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close" id="dataSource">
+        <property name="driverClassName" value="org.sqlite.JDBC"/>
+        <property name="url" value="jdbc:sqlite:${sqlite.fullpath}" />
+    </bean>
+    
 	<bean id="sessionFactory"  class="org.springframework.orm.hibernate4.LocalSessionFactoryBean" >
 		<property name="dataSource" ref="dataSource"/>
     	<property name="packagesToScan" value="ar.com.templateApp.entities"/>
 		<property name="hibernateProperties">
 			<props>
-				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>  
+				<prop key="hibernate.dialect">com.curcico.jproject.webutils.utils.SQLiteDialect</prop>  
 				<prop key="hibernate.show_sql">true</prop>
 				<prop key="hibernate.format_sql">true</prop>
-				<prop key="hibernate.hbm2ddl.auto">validate</prop>
+				<prop key="hibernate.hbm2ddl.auto">create</prop>
 			</props>
 		</property>
 	</bean>
 
-	<!-- Defino transaction manager de hibernate -->
 	<bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
-
-
 </beans>

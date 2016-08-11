@@ -19,11 +19,16 @@
 		http://www.springframework.org/schema/aop 		http://www.springframework.org/schema/aop/spring-aop.xsd
 		http://www.springframework.org/schema/security	http://www.springframework.org/schema/security/spring-security.xsd">
 
+
+    <util:properties id="applicationProps" location="classpath:application.properties" />
+    <context:property-placeholder properties-ref="applicationProps" />
+
 	<!-- package por defecto -->
 	<context:component-scan base-package="ar.com.templateApp.controllers, com.curcico.jproject.webutils.controllers" />  
 
 	<!-- contexto para llamar a recursos estaticos -->
 	<mvc:resources mapping="/resources/**" location="/resources/" />	
+	
 	
 	<mvc:annotation-driven>
         <mvc:message-converters>
@@ -42,25 +47,6 @@
             
         </mvc:message-converters>
     </mvc:annotation-driven>
-    
-	<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
-	  <property name="viewResolvers">
-	    <list>
-	      <bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
-	        <property name="viewClass" value="org.springframework.web.servlet.view.tiles2.TilesView"/>
-	      </bean>
-	    </list>
-	  </property>	  
-	</bean>
-	
-	<!-- tiles de spring -->
-	<bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
-		<property name="definitions">
-			<list>
-				<value>/WEB-INF/tiles.xml</value>
-			</list>
-		</property>
-	</bean>
 
 	<!-- Defino mensajes (resources boundle) -->
 	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
@@ -76,6 +62,16 @@
  	
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
     	<property name="defaultEncoding" value="utf-8"/>
+	</bean>
+	
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix">
+			<value>/WEB-INF/pages/</value>
+		</property>
+		<property name="suffix">
+			<value>.jsp</value>
+		</property>
 	</bean>
 	    
 </beans>

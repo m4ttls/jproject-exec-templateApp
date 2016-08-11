@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Context>
-	<!-- DATA SOURCE -->
-	<ResourceLink global="jdbc/templateApp" name="jdbc/templateApp" type="javax.sql.DataSource"/>
-</Context>

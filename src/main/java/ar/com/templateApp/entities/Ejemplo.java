@@ -47,7 +47,7 @@ public class Ejemplo extends TimeRangeEntity {
 		this.codigo = codigo;
 	}
 	
-	@Column(name = "CODIGO", nullable=true, length=250, unique=false)
+	@Column(name = "DESCRIPCION", nullable=true, length=250, unique=false)
 	public String getDescripcion() {
 		return descripcion;
 	}
