@@ -13,6 +13,15 @@
 |vigenciaHasta||false|string (date-time)||
 
 
+### GridWrapperOfEjemplo
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|page||false|integer (int32)||
+|records||false|integer (int64)||
+|rows||false|CollectionOfEjemplo||
+|total||false|integer (int32)||
+
+
 ### ModelAndView
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|

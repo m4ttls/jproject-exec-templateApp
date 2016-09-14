@@ -19,9 +19,9 @@ BasePath: /
 
 ### Tags
 
-* ejemplo-controller: Operations about ejemplos
 * base-exception-controller: Base Exception Controller
 * error-controller: Error Controller
+* ejemplo-controller: Ejemplo Controller
 * hello-controller: Hello Controller
 
 

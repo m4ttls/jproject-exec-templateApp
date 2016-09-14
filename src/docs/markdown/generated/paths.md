@@ -1,5 +1,38 @@
 ## Paths
-### save
+### printWelcome
+```
+GET /
+```
+
+#### Parameters
+|Type|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|----|
+|BodyParameter|model|model|false|object||
+|BodyParameter|locale|locale|false|Locale||
+
+
+#### Responses
+|HTTP Code|Description|Schema|
+|----|----|----|
+|200|OK|string|
+|401|Unauthorized|No Content|
+|403|Forbidden|No Content|
+|404|Not Found|No Content|
+
+
+#### Consumes
+
+* application/json
+
+#### Produces
+
+* */*
+
+#### Tags
+
+* hello-controller
+
+### Crea una entidad Ejemplo 
 ```
 POST /ejemplos
 ```
@@ -32,7 +65,7 @@ POST /ejemplos
 
 * ejemplo-controller
 
-### getCollection
+### Retorna un objeto GridWrapper con una coleccion de entidades Ejemplo 
 ```
 GET /ejemplos
 ```
@@ -40,19 +73,21 @@ GET /ejemplos
 #### Parameters
 |Type|Name|Description|Required|Schema|Default|
 |----|----|----|----|----|----|
-|QueryParameter|filters|filters|false|string||
-|QueryParameter|fetchs|fetchs|false|string||
-|QueryParameter|page|page|false|integer (int32)||
-|QueryParameter|rows|rows|false|integer (int32)||
-|QueryParameter|sidx|sidx|false|string||
-|QueryParameter|sord|sord|false|string||
-|BodyParameter|e|e|false|Ejemplo||
+|QueryParameter|filters|Filtros sobre la entidad|false|string||
+|QueryParameter|fetchs|Listado de instanciaciones requeridas de composiciones de la entidad|false|string||
+|QueryParameter|page|Pagina solicitada|false|integer (int32)||
+|QueryParameter|rows|Cantidad de registros por pagina|false|integer (int32)||
+|QueryParameter|sidx|Campo por el que se desea ordenar los resultados|false|string||
+|QueryParameter|sord|Modo por el que se desea ordenar los resultados (asc = Ascendente / desc = Descendente)|false|string||
+|QueryParameter|searchField|Campo por el que se desea buscar|false|string||
+|QueryParameter|searchOper|Operador de busqueda|false|string||
+|QueryParameter|searchString|Valor por el que se desea filtrar la busqueda|false|string||
 
 
 #### Responses
 |HTTP Code|Description|Schema|
 |----|----|----|
-|200|OK|object|
+|200|OK|GridWrapperOfEjemplo|
 |401|Unauthorized|No Content|
 |403|Forbidden|No Content|
 |404|Not Found|No Content|
@@ -70,7 +105,7 @@ GET /ejemplos
 
 * ejemplo-controller
 
-### getGreeting
+### Ejemplo de llamado con un multipart
 ```
 POST /ejemplos/file
 ```
@@ -78,8 +113,8 @@ POST /ejemplos/file
 #### Parameters
 |Type|Name|Description|Required|Schema|Default|
 |----|----|----|----|----|----|
-|BodyParameter|ejemplo|Entity in json format|true|string||
-|BodyParameter|file|file|true|string||
+|QueryParameter|ejemplo|Entidad|true|string||
+|FormDataParameter|file|Archivo|true|file||
 
 
 #### Responses
@@ -104,7 +139,7 @@ POST /ejemplos/file
 
 * ejemplo-controller
 
-### update
+### Actualiza una entidad Ejemplo 
 ```
 PUT /ejemplos/{id}
 ```
@@ -138,40 +173,7 @@ PUT /ejemplos/{id}
 
 * ejemplo-controller
 
-### Resource to get a ${nombreObjeto} 
-```
-GET /ejemplos/{id}
-```
-
-#### Parameters
-|Type|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|----|
-|PathParameter|id|id|true|integer (int32)||
-|BodyParameter|e|e|false|Ejemplo||
-
-
-#### Responses
-|HTTP Code|Description|Schema|
-|----|----|----|
-|200|OK|Ejemplo|
-|401|Unauthorized|No Content|
-|403|Forbidden|No Content|
-|404|Not Found|No Content|
-
-
-#### Consumes
-
-* application/json
-
-#### Produces
-
-* application/json;charset=UTF-8
-
-#### Tags
-
-* ejemplo-controller
-
-### delete
+### Elimina una entidad Ejemplo 
 ```
 DELETE /ejemplos/{id}
 ```
@@ -181,7 +183,6 @@ DELETE /ejemplos/{id}
 |----|----|----|----|----|----|
 |PathParameter|id|id|true|integer (int32)||
 |QueryParameter|userId|userId|true|integer (int32)||
-|BodyParameter|e|e|false|Ejemplo||
 
 
 #### Responses
@@ -200,6 +201,43 @@ DELETE /ejemplos/{id}
 #### Produces
 
 * */*
+
+#### Tags
+
+* ejemplo-controller
+
+### Retorna por id una 
+```
+GET /ejemplos/{id}
+```
+
+#### Description
+
+Retorna una unica entidad coincidente con el id pasado en la url. Admite el parametro fetch el listado de las composiciones a inicializar. 
+
+#### Parameters
+|Type|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|----|
+|PathParameter|id|Id de la entidad|true|integer (int32)||
+|QueryParameter|fetchs|Listado de instanciaciones requeridas de composiciones de la entidad|false|string||
+
+
+#### Responses
+|HTTP Code|Description|Schema|
+|----|----|----|
+|200|OK|Ejemplo|
+|401|Unauthorized|No Content|
+|403|Forbidden|No Content|
+|404|Not Found|No Content|
+
+
+#### Consumes
+
+* application/json
+
+#### Produces
+
+* application/json;charset=UTF-8
 
 #### Tags
 
@@ -324,41 +362,9 @@ GET /exception/error
 
 * base-exception-controller
 
-### printWelcome
-```
-GET /hello
-```
-
-#### Parameters
-|Type|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|----|
-|BodyParameter|model|model|false|object||
-
-
-#### Responses
-|HTTP Code|Description|Schema|
-|----|----|----|
-|200|OK|string|
-|401|Unauthorized|No Content|
-|403|Forbidden|No Content|
-|404|Not Found|No Content|
-
-
-#### Consumes
-
-* application/json
-
-#### Produces
-
-* */*
-
-#### Tags
-
-* hello-controller
-
 ### hello
 ```
-GET /hello/{name}
+GET /{name}
 ```
 
 #### Parameters
