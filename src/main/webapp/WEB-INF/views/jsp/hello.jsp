@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Web Template App</title>
+	<title>jproject-templateApp</title>
 	 
 	<spring:url value="/resources/core/css/templateApp.css" var="coreCss" />
 	<spring:url value="/resources/core/css/bootstrap.min.css" var="bootstrapCss" />
@@ -30,18 +30,15 @@
  
 <div class="jumbotron">
   <div class="container">
-	<h1>${title}</h1>
-	<p>
+	<h2><spring:message code="title" /></h2>
+	<p> 
+		<spring:message code="welcome" />
 		<c:if test="${not empty name}">
-			Welcome, ${name}
-		</c:if>
- 
-		<c:if test="${empty name}">
-			Hello, Who are you?
+			, ${name}
 		</c:if>
     </p>
     <p>
-		<a class="btn btn-primary btn-lg" href="swagger-ui.html" role="button">See API REST Example</a>
+		<a class="btn btn-primary btn-lg" href="swagger-ui.html" role="button"><spring:message code="go.api" /></a>
 	</p>
 	</div>
 </div>
@@ -50,12 +47,7 @@
  
 	<div class="row">
 		<div class="col-md-12">
-			<h2>Heading</h2>
-			<p>ABC</p>
-			
-			<br><hr><br>
-	
-			<h2>Messages</h2>
+			<h2><spring:message code="messages" /></h2>
 			<table>
 			    <tr>
 			        <td><b>welcome: </b></td>
@@ -67,9 +59,9 @@
 			    </tr>
 			</table>
 			
-			<br><hr><br>
+			<hr><br>
 			
-			<h2>Properties</h2>
+			<h2><spring:message code="properties" /></h2>
 			<table>
 			    <tr>
 			        <td><b>db.url: </b></td>
@@ -90,8 +82,7 @@
 	<br><br><br><br><hr>
 	  <footer>
 	    <a href="?lang=en">English </a> | <a href="?lang=es">Espa&ntilde;ol </a>
-	    | <a href="?lang=es_AR">Espa&ntilde;ol (AR) </a> | <a href="?lang=es_ES">Espa&ntilde;ol (ES) </a>
-		<p><a href="https://github.com/acurci/jproject-templateApp">Follow me in Github</a></p>
+		<p><a href="https://github.com/acurci/jproject-templateApp">${follow.me.in.github}</a></p>
 	  </footer>
 </div>
 </body>
