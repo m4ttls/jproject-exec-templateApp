@@ -20,8 +20,8 @@ BasePath: /
 ### Tags
 
 * base-exception-controller: Base Exception Controller
+* ejemplo-controller: Operaciones sobre una entidad ejemplo.
 * error-controller: Error Controller
-* ejemplo-controller: Ejemplo Controller
 * hello-controller: Hello Controller
 
 

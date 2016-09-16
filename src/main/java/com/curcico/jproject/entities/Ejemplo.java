@@ -14,11 +14,15 @@ import org.hibernate.annotations.Where;
 
 import com.curcico.jproject.core.entities.TimeRangeEntity;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /** Entidad que registra las noticias.
  * @author Ing. Alejandro Daniel Curci (acurci@gmail.com)
  *
  */
 @Entity
+@ApiModel(value="value", description="description", reference="reference", parent=TimeRangeEntity.class)
 @Table(name = "TBL_EJEMPLO")
 @Where(clause="DELETED IS NULL")
 @SQLDelete(sql="UPDATE TBL_EJEMPLO SET DELETED = CURRENT_TIMESTAMP WHERE ID = ? AND VERSION = ?")
@@ -40,12 +44,14 @@ public class Ejemplo extends TimeRangeEntity {
 	@Override
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name = "ID", unique=true, nullable=false)	
+	@Column(name = "ID", unique=true, nullable=false)
+	@ApiModelProperty(value="Clave primaria de la entidad Ejemplo", required=false, position=0)
 	public Integer getId() {
 		return super.id;
 	}
 
 	@Column(name = "CODIGO", nullable=false, length=10, unique=true)
+	@ApiModelProperty(value="Codigo", required=true, notes="Codigo unico de la entidad", position=1)
 	public String getCodigo() {
 		return codigo;
 	}
@@ -55,6 +61,7 @@ public class Ejemplo extends TimeRangeEntity {
 	}
 	
 	@Column(name = "DESCRIPCION", nullable=true, length=250, unique=false)
+	@ApiModelProperty(value="Descripcion de la entidad", required=true, position=2)
 	public String getDescripcion() {
 		return descripcion;
 	}
@@ -64,7 +71,8 @@ public class Ejemplo extends TimeRangeEntity {
 	}
 	
 	@Enumerated(EnumType.ORDINAL)
-	@Column(name = "TIPO", nullable=false)	
+	@Column(name = "TIPO", nullable=false)
+	@ApiModelProperty(value="Propiedad correspondiente a un Enum", required=true, position=3)
 	public Tipo getTipo() {
 		return tipo;
 	}

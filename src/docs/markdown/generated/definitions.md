@@ -1,27 +1,4 @@
 ## Definitions
-### Ejemplo
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|active||false|boolean||
-|codigo||false|string||
-|deleted||false|string||
-|descripcion||false|string||
-|id||false|integer (int32)||
-|tipo||false|enum (EXAMPLE_ONE, EXAMPLE_TWO)||
-|version||false|integer (int32)||
-|vigenciaDesde||false|string (date-time)||
-|vigenciaHasta||false|string (date-time)||
-
-
-### GridWrapperOfEjemplo
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|page||false|integer (int32)||
-|records||false|integer (int64)||
-|rows||false|CollectionOfEjemplo||
-|total||false|integer (int32)||
-
-
 ### ModelAndView
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
@@ -38,5 +15,22 @@
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
 |contentType||false|string||
+
+
+### value
+
+description
+
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|id|Clave primaria de la entidad Ejemplo|false|integer (int32)||
+|codigo|Codigo|true|string||
+|descripcion|Descripcion de la entidad|true|string||
+|tipo|Propiedad correspondiente a un Enum|true|enum (EXAMPLE_ONE, EXAMPLE_TWO)||
+|active|Marca de entidad activa|false|boolean||
+|vigenciaDesde|Fecha de vigencia desde|false|string (date-time)||
+|vigenciaHasta|Fecha de vigencia hasta|false|string (date-time)||
+|deleted|Marca de borrado|false|string||
+|version|Version de la entidad para control de concurrencia|false|integer (int32)||
 
 

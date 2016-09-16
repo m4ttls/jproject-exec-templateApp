@@ -1,5 +1,7 @@
 package com.curcico.jproject.config;
 
+import static springfox.documentation.schema.AlternateTypeRules.newRule;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,40 +14,30 @@ import com.fasterxml.classmate.TypeResolver;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.schema.WildcardType;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
-
-import static springfox.documentation.schema.AlternateTypeRules.*;
-
-import javax.lang.model.type.WildcardType;
+import springfox.documentation.swagger2.annotations.EnableSwagger2; 
 
 @Configuration
 @EnableSwagger2
 public class SwaggerConfiguration {
-	
-	  @Autowired
-	  private TypeResolver typeResolver;
 
 	@Bean
     public Docket api() { 
         return new Docket(DocumentationType.SWAGGER_2)
           .apiInfo(getApiInfo())
-          .forCodeGeneration(true)
           .genericModelSubstitutes(ResponseEntity.class)
-          .alternateTypeRules(
-        		  newRule(typeResolver.resolve(ResponseEntity.class), typeResolver.resolve(WildcardType.class)),
-        		  newRule(typeResolver.resolve(ResponseEntity.class, typeResolver.resolve(GridWrapper.class, WildcardType.class)),
-        				  typeResolver.resolve(WildcardType.class))
-		          )
+          .genericModelSubstitutes(GridWrapper.class)
           .select()                                  
-          .apis(RequestHandlerSelectors.any())              
-          .paths(PathSelectors.any())
-          .build();                                           
+          	.apis(RequestHandlerSelectors.any())              
+          	.paths(PathSelectors.any())
+          	.build();                                           
     }
 	
+
     public ApiInfo getApiInfo() {
     	Contact contact = new Contact(	"Alejandro Daniel Curci", 
     									"https://github.com/acurci/", 
