@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.curcico.jproject.entities.Ejemplo;
-import com.curcico.jproject.services.EjemploService;
+import com.curcico.jproject.entities.Foo;
+import com.curcico.jproject.services.FooService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import io.swagger.annotations.Api;
@@ -22,26 +22,30 @@ import io.swagger.annotations.ApiParam;
 
 @RestController
 @Api(description = "Operaciones sobre una entidad ejemplo.")
-@RequestMapping(path = "/ejemplos")
-public class EjemploController 
-	extends CommonsController<Ejemplo, EjemploService> {
+@RequestMapping(path = "/foos")
+public class FooController 
+	extends CommonsController<Foo, FooService> {
 
+
+	
 	@PostMapping(path="/file")	
-    @ApiOperation(value = "Ejemplo de llamado con un multipart")
+    @ApiOperation(value = "Multipart + json example")
 	public @ResponseBody String saveMultipart(
-			@ApiParam(value = "Entidad", required = true) @RequestParam(value="ejemplo", required=true)   String ejemplo, 
-			@ApiParam(value = "Archivo", required = true) @RequestPart(value="file", required=true) 	  MultipartFile file, 
+			@ApiParam(value = "Entidad", required = true) 
+				@RequestParam(value="foo", required=true)   String foo, 
+			@ApiParam(value = "Archivo", required = true) 
+				@RequestPart(value="file", required=true) 	MultipartFile file, 
 			HttpServletRequest request) 
 					throws Exception {
 		String status = "";
-		Ejemplo ejemploObj = new ObjectMapper().readValue(ejemplo, Ejemplo.class);
+		Foo fooObj = new ObjectMapper().readValue(foo, Foo.class);
 		Enumeration<String> headers = request.getHeaderNames();
 		for (; headers.hasMoreElements();) {
 			String key = headers.nextElement();
 			status += key + " : " + request.getHeader(key) + "\n"; 
 		}
 		status += (file==null?"File is null - ":"Filesize is " + file.getSize()) + "\n"
-				+ (ejemploObj==null?"Ejemplo is null\n":"Ejemplo is: " + ejemploObj.getCodigo());
+				+ (fooObj==null?"Foo is null\n":"Foo is: " + fooObj.getCode());
 		return status;
 	}
 

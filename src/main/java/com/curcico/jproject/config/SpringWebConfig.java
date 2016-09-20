@@ -23,7 +23,7 @@ import org.springframework.web.servlet.view.JstlView;
 @EnableWebMvc
 @Configuration
 @ComponentScan({ "com.curcico.jproject.web.controller" })
-@Import(SwaggerConfiguration.class)
+@Import({SwaggerConfiguration.class, SpringSecurityConfig.class })
 public class SpringWebConfig extends WebMvcConfigurerAdapter {
  
 	@Override

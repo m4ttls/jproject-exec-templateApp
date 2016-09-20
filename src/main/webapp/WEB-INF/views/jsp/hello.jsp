@@ -1,5 +1,6 @@
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page session="false" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,6 +40,9 @@
     </p>
     <p>
 		<a class="btn btn-primary btn-lg" href="swagger-ui.html" role="button"><spring:message code="go.api" /></a>
+	</p>
+    <p>
+		<a class="btn btn-danger btn-lg" href="secure/admin" role="button"><spring:message code="go.secure.page" /></a>
 	</p>
 	</div>
 </div>

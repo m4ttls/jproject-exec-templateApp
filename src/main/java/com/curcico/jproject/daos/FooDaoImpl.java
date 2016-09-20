@@ -5,10 +5,10 @@ import org.springframework.stereotype.Repository;
 
 
 import com.curcico.jproject.core.daos.TimeRangeEntityDaoImpl;
-import com.curcico.jproject.entities.Ejemplo;
+import com.curcico.jproject.entities.Foo;
 
 @Repository
-public class EjemploDaoImpl extends TimeRangeEntityDaoImpl<Ejemplo	>
-							implements EjemploDao{
+public class FooDaoImpl extends TimeRangeEntityDaoImpl<Foo	>
+							implements FooDao{
 	
 }

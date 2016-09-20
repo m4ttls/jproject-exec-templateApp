@@ -31,4 +31,12 @@ public class HelloController extends BaseController{
 		return model;
 	}
 
+	@RequestMapping(value = "/secure/admin", method = RequestMethod.GET)
+	public ModelAndView admin() {
+		logger.error("TEST LOG");
+		ModelAndView model = new ModelAndView();
+		model.setViewName("secure/admin");
+		return model;
+	}
+	
 }
