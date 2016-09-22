@@ -1,262 +1,4 @@
 == Paths
-=== printWelcome
-----
-GET /
-----
-
-==== Parameters
-[options="header"]
-|===
-|Type|Name|Description|Required|Schema|Default
-|BodyParameter|model|model|false|object|
-|BodyParameter|locale|locale|false|<<Locale>>|
-|===
-
-==== Responses
-[options="header"]
-|===
-|HTTP Code|Description|Schema
-|200|OK|string
-|401|Unauthorized|No Content
-|403|Forbidden|No Content
-|404|Not Found|No Content
-|===
-
-==== Consumes
-
-* application/json
-
-==== Produces
-
-* */*
-
-==== Tags
-
-* hello-controller
-
-=== Retorna un objeto GridWrapper con una coleccion de entidades Ejemplo 
-----
-GET /ejemplos
-----
-
-==== Parameters
-[options="header"]
-|===
-|Type|Name|Description|Required|Schema|Default
-|QueryParameter|filters|Filtros sobre la entidad|false|string|
-|QueryParameter|fetchs|Listado de instanciaciones requeridas de composiciones de la entidad|false|string|
-|QueryParameter|page|Pagina solicitada|false|integer (int32)|
-|QueryParameter|rows|Cantidad de registros por pagina|false|integer (int32)|
-|QueryParameter|sidx|Campo por el que se desea ordenar los resultados|false|string|
-|QueryParameter|sord|Modo por el que se desea ordenar los resultados (asc = Ascendente / desc = Descendente)|false|string|
-|QueryParameter|searchField|Campo por el que se desea buscar|false|string|
-|QueryParameter|searchOper|Operador de busqueda|false|string|
-|QueryParameter|searchString|Valor por el que se desea filtrar la busqueda|false|string|
-|BodyParameter|entity|entity|false|<<value>>|
-|===
-
-==== Responses
-[options="header"]
-|===
-|HTTP Code|Description|Schema
-|200|OK|<<value>>
-|401|Unauthorized|No Content
-|403|Forbidden|No Content
-|404|Not Found|No Content
-|===
-
-==== Consumes
-
-* application/json
-
-==== Produces
-
-* application/json;charset=UTF-8
-
-==== Tags
-
-* ejemplo-controller
-
-=== Crea una nueva entidad
-----
-POST /ejemplos
-----
-
-==== Parameters
-[options="header"]
-|===
-|Type|Name|Description|Required|Schema|Default
-|BodyParameter|entity|entity|true|<<value>>|
-|===
-
-==== Responses
-[options="header"]
-|===
-|HTTP Code|Description|Schema
-|201|Created|<<value>>
-|401|Unauthorized|No Content
-|403|Forbidden|No Content
-|404|Not Found|No Content
-|===
-
-==== Consumes
-
-* application/json;charset=UTF-8
-
-==== Produces
-
-* application/json;charset=UTF-8
-
-==== Tags
-
-* ejemplo-controller
-
-=== Ejemplo de llamado con un multipart
-----
-POST /ejemplos/file
-----
-
-==== Parameters
-[options="header"]
-|===
-|Type|Name|Description|Required|Schema|Default
-|QueryParameter|ejemplo|Entidad|true|string|
-|FormDataParameter|file|Archivo|true|file|
-|===
-
-==== Responses
-[options="header"]
-|===
-|HTTP Code|Description|Schema
-|200|OK|string
-|201|Created|No Content
-|401|Unauthorized|No Content
-|403|Forbidden|No Content
-|404|Not Found|No Content
-|===
-
-==== Consumes
-
-* multipart/form-data
-
-==== Produces
-
-* */*
-
-==== Tags
-
-* ejemplo-controller
-
-=== Retorna la entidad Ejemplo correspondiente al id 
-----
-GET /ejemplos/{id}
-----
-
-==== Description
-:hardbreaks:
-Retorna una unica entidad coincidente con el id pasado en la url. Admite el parametro fetch el listado de las composiciones a inicializar. 
-
-==== Parameters
-[options="header"]
-|===
-|Type|Name|Description|Required|Schema|Default
-|PathParameter|id|Id de la entidad|true|integer (int32)|
-|QueryParameter|fetchs|Listado de instanciaciones requeridas de composiciones de la entidad|false|string|
-|===
-
-==== Responses
-[options="header"]
-|===
-|HTTP Code|Description|Schema
-|200|OK|<<value>>
-|401|Unauthorized|No Content
-|403|Forbidden|No Content
-|404|Not Found|No Content
-|===
-
-==== Consumes
-
-* application/json
-
-==== Produces
-
-* application/json;charset=UTF-8
-
-==== Tags
-
-* ejemplo-controller
-
-=== Elimina una entidad Ejemplo 
-----
-DELETE /ejemplos/{id}
-----
-
-==== Parameters
-[options="header"]
-|===
-|Type|Name|Description|Required|Schema|Default
-|PathParameter|id|id|true|integer (int32)|
-|QueryParameter|version|version|true|integer (int32)|
-|===
-
-==== Responses
-[options="header"]
-|===
-|HTTP Code|Description|Schema
-|200|OK|<<value>>
-|204|No Content|No Content
-|401|Unauthorized|No Content
-|403|Forbidden|No Content
-|===
-
-==== Consumes
-
-* application/json
-
-==== Produces
-
-* */*
-
-==== Tags
-
-* ejemplo-controller
-
-=== Actualiza una entidad Ejemplo 
-----
-PUT /ejemplos/{id}
-----
-
-==== Parameters
-[options="header"]
-|===
-|Type|Name|Description|Required|Schema|Default
-|BodyParameter|entity|entity|true|<<value>>|
-|PathParameter|id|id|true|integer (int32)|
-|===
-
-==== Responses
-[options="header"]
-|===
-|HTTP Code|Description|Schema
-|200|OK|<<value>>
-|201|Created|No Content
-|401|Unauthorized|No Content
-|403|Forbidden|No Content
-|404|Not Found|No Content
-|===
-
-==== Consumes
-
-* application/json;charset=UTF-8
-
-==== Produces
-
-* application/json;charset=UTF-8
-
-==== Tags
-
-* ejemplo-controller
-
 === error403
 ----
 GET /errores/403
@@ -382,23 +124,32 @@ POST /exception/error
 
 * base-exception-controller
 
-=== hello
+=== Return a GridWrapper object with a Foo collection.
 ----
-GET /hello/{name}
+GET /foos
 ----
 
 ==== Parameters
 [options="header"]
 |===
 |Type|Name|Description|Required|Schema|Default
-|PathParameter|name|name|true|string|
+|QueryParameter|filters|Filters over Foo entity|false|string|
+|QueryParameter|fetchs|Fetchs required|false|string|
+|QueryParameter|page|Page to show|false|integer (int32)|
+|QueryParameter|rows|Records per page|false|integer (int32)|
+|QueryParameter|sidx|Order By|false|string|
+|QueryParameter|sord|Order mode (ASC or DESC)|false|string|
+|QueryParameter|searchField|Search field|false|string|
+|QueryParameter|searchOper|Search operator|false|string|
+|QueryParameter|searchString|Search data|false|string|
+|BodyParameter|dummy|Dummy param for generics discovery|false|<<Foo>>|
 |===
 
 ==== Responses
 [options="header"]
 |===
 |HTTP Code|Description|Schema
-|200|OK|<<ModelAndView>>
+|200|OK|<<Foo>>
 |401|Unauthorized|No Content
 |403|Forbidden|No Content
 |404|Not Found|No Content
@@ -410,23 +161,57 @@ GET /hello/{name}
 
 ==== Produces
 
-* */*
+* application/json;charset=UTF-8
 
 ==== Tags
 
-* hello-controller
+* foo-controller
 
-=== printWelcome
+=== Create a new Foo entity.
 ----
-GET /welcome**
+POST /foos
 ----
 
 ==== Parameters
 [options="header"]
 |===
 |Type|Name|Description|Required|Schema|Default
-|BodyParameter|model|model|false|object|
-|BodyParameter|locale|locale|false|<<Locale>>|
+|BodyParameter|entity|entity|true|<<Foo>>|
+|===
+
+==== Responses
+[options="header"]
+|===
+|HTTP Code|Description|Schema
+|201|Created|<<Foo>>
+|401|Unauthorized|No Content
+|403|Forbidden|No Content
+|404|Not Found|No Content
+|===
+
+==== Consumes
+
+* application/json;charset=UTF-8
+
+==== Produces
+
+* application/json;charset=UTF-8
+
+==== Tags
+
+* foo-controller
+
+=== Multipart + json example
+----
+POST /foos/file
+----
+
+==== Parameters
+[options="header"]
+|===
+|Type|Name|Description|Required|Schema|Default
+|QueryParameter|foo|Entidad|true|string|
+|FormDataParameter|file|Archivo|true|file|
 |===
 
 ==== Responses
@@ -434,9 +219,160 @@ GET /welcome**
 |===
 |HTTP Code|Description|Schema
 |200|OK|string
+|201|Created|No Content
 |401|Unauthorized|No Content
 |403|Forbidden|No Content
 |404|Not Found|No Content
+|===
+
+==== Consumes
+
+* multipart/form-data
+
+==== Produces
+
+* */*
+
+==== Tags
+
+* foo-controller
+
+=== Return a GridWrapper object with the Bar collection.
+----
+GET /foos/{fooId}/bars
+----
+
+==== Parameters
+[options="header"]
+|===
+|Type|Name|Description|Required|Schema|Default
+|PathParameter|fooId|Foo entity Id|true|integer (int32)|
+|QueryParameter|filters|Filters over Bar entity|false|string|
+|QueryParameter|fetchs|Fetchs required|false|string|
+|QueryParameter|page|Page to show|false|integer (int32)|
+|QueryParameter|rows|Records per page|false|integer (int32)|
+|QueryParameter|sidx|Order By|false|string|
+|QueryParameter|sord|Order mode (ASC or DESC)|false|string|
+|QueryParameter|searchField|Search field|false|string|
+|QueryParameter|searchOper|Search operator|false|string|
+|QueryParameter|searchString|Search data|false|string|
+|===
+
+==== Responses
+[options="header"]
+|===
+|HTTP Code|Description|Schema
+|200|OK|<<Bar>>
+|401|Unauthorized|No Content
+|403|Forbidden|No Content
+|404|Not Found|No Content
+|===
+
+==== Consumes
+
+* application/json
+
+==== Produces
+
+* application/json;charset=UTF-8
+
+==== Tags
+
+* bar-controller
+
+=== Create a new Bar entity in to Foo's collection.
+----
+POST /foos/{fooId}/bars
+----
+
+==== Parameters
+[options="header"]
+|===
+|Type|Name|Description|Required|Schema|Default
+|PathParameter|fooId|Foo entity Id|true|integer (int32)|
+|BodyParameter|entity|Bar entity|true|<<Bar>>|
+|===
+
+==== Responses
+[options="header"]
+|===
+|HTTP Code|Description|Schema
+|201|Created|<<Bar>>
+|401|Unauthorized|No Content
+|403|Forbidden|No Content
+|404|Not Found|No Content
+|===
+
+==== Consumes
+
+* application/json;charset=UTF-8
+
+==== Produces
+
+* application/json;charset=UTF-8
+
+==== Tags
+
+* bar-controller
+
+=== Return a Bar entity by Id 
+----
+GET /foos/{fooId}/bars/{id}
+----
+
+==== Parameters
+[options="header"]
+|===
+|Type|Name|Description|Required|Schema|Default
+|PathParameter|fooId|Foo entity Id|true|integer (int32)|
+|PathParameter|id|Bar entity Id|true|integer (int32)|
+|QueryParameter|fetchs|Fetchs required|false|string|
+|===
+
+==== Responses
+[options="header"]
+|===
+|HTTP Code|Description|Schema
+|200|OK|<<Bar>>
+|401|Unauthorized|No Content
+|403|Forbidden|No Content
+|404|Not Found|No Content
+|===
+
+==== Consumes
+
+* application/json
+
+==== Produces
+
+* application/json;charset=UTF-8
+
+==== Tags
+
+* bar-controller
+
+=== Delete a Bars entity from de Foo's colleción.
+----
+DELETE /foos/{fooId}/bars/{id}
+----
+
+==== Parameters
+[options="header"]
+|===
+|Type|Name|Description|Required|Schema|Default
+|PathParameter|fooId|Foo entity Id|true|integer (int32)|
+|PathParameter|id|Bar entity Id|true|integer (int32)|
+|QueryParameter|version|Bar entity version|true|integer (int32)|
+|===
+
+==== Responses
+[options="header"]
+|===
+|HTTP Code|Description|Schema
+|200|OK|<<Bar>>
+|204|No Content|No Content
+|401|Unauthorized|No Content
+|403|Forbidden|No Content
 |===
 
 ==== Consumes
@@ -449,5 +385,148 @@ GET /welcome**
 
 ==== Tags
 
-* hello-controller
+* bar-controller
+
+=== Update a Bar entity.
+----
+PUT /foos/{fooId}/bars/{id}
+----
+
+==== Parameters
+[options="header"]
+|===
+|Type|Name|Description|Required|Schema|Default
+|PathParameter|fooId|Foo entity Id|true|integer (int32)|
+|BodyParameter|entity|Bar entity|true|<<Bar>>|
+|PathParameter|id|Bar Id|true|integer (int32)|
+|===
+
+==== Responses
+[options="header"]
+|===
+|HTTP Code|Description|Schema
+|200|OK|<<Bar>>
+|201|Created|No Content
+|401|Unauthorized|No Content
+|403|Forbidden|No Content
+|404|Not Found|No Content
+|===
+
+==== Consumes
+
+* application/json;charset=UTF-8
+
+==== Produces
+
+* application/json;charset=UTF-8
+
+==== Tags
+
+* bar-controller
+
+=== Return a Foo entity by Id 
+----
+GET /foos/{id}
+----
+
+==== Parameters
+[options="header"]
+|===
+|Type|Name|Description|Required|Schema|Default
+|PathParameter|id|Foo entity Id|true|integer (int32)|
+|QueryParameter|fetchs|Fetchs required|false|string|
+|===
+
+==== Responses
+[options="header"]
+|===
+|HTTP Code|Description|Schema
+|200|OK|<<Foo>>
+|401|Unauthorized|No Content
+|403|Forbidden|No Content
+|404|Not Found|No Content
+|===
+
+==== Consumes
+
+* application/json
+
+==== Produces
+
+* application/json;charset=UTF-8
+
+==== Tags
+
+* foo-controller
+
+=== Delete a Foo entity.
+----
+DELETE /foos/{id}
+----
+
+==== Parameters
+[options="header"]
+|===
+|Type|Name|Description|Required|Schema|Default
+|PathParameter|id|id|true|integer (int32)|
+|QueryParameter|version|version|true|integer (int32)|
+|===
+
+==== Responses
+[options="header"]
+|===
+|HTTP Code|Description|Schema
+|200|OK|<<Foo>>
+|204|No Content|No Content
+|401|Unauthorized|No Content
+|403|Forbidden|No Content
+|===
+
+==== Consumes
+
+* application/json
+
+==== Produces
+
+* */*
+
+==== Tags
+
+* foo-controller
+
+=== Update a Foo entity.
+----
+PUT /foos/{id}
+----
+
+==== Parameters
+[options="header"]
+|===
+|Type|Name|Description|Required|Schema|Default
+|BodyParameter|entity|entity|true|<<Foo>>|
+|PathParameter|id|id|true|integer (int32)|
+|===
+
+==== Responses
+[options="header"]
+|===
+|HTTP Code|Description|Schema
+|200|OK|<<Foo>>
+|201|Created|No Content
+|401|Unauthorized|No Content
+|403|Forbidden|No Content
+|404|Not Found|No Content
+|===
+
+==== Consumes
+
+* application/json;charset=UTF-8
+
+==== Produces
+
+* application/json;charset=UTF-8
+
+==== Tags
+
+* foo-controller
 

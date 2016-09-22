@@ -1,4 +1,39 @@
 ## Definitions
+### Bar
+
+Bar entity
+
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|foo||false|Foo||
+|id|Bar's primary key|false|integer (int32)||
+|date|Date|true|string (date-time)||
+|detail|Detail|true|string||
+|active|Marca de entidad activa|false|boolean||
+|vigenciaDesde|Fecha de vigencia desde|false|string (date-time)||
+|vigenciaHasta|Fecha de vigencia hasta|false|string (date-time)||
+|deleted|Marca de borrado|false|string||
+|version|Version de la entidad para control de concurrencia|false|integer (int32)||
+
+
+### Foo
+
+Foo entity
+
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|id|Foo's primary key|false|integer (int32)||
+|code|Code|true|string||
+|description|Foo's description|true|string||
+|bars|Foo's type|true|Collection«Bar»||
+|type|Foo's type|true|enum (EXAMPLE_ONE, EXAMPLE_TWO)||
+|active|Marca de entidad activa|false|boolean||
+|vigenciaDesde|Fecha de vigencia desde|false|string (date-time)||
+|vigenciaHasta|Fecha de vigencia hasta|false|string (date-time)||
+|deleted|Marca de borrado|false|string||
+|version|Version de la entidad para control de concurrencia|false|integer (int32)||
+
+
 ### ModelAndView
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
@@ -15,22 +50,5 @@
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
 |contentType||false|string||
-
-
-### value
-
-description
-
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|id|Clave primaria de la entidad Ejemplo|false|integer (int32)||
-|codigo|Codigo|true|string||
-|descripcion|Descripcion de la entidad|true|string||
-|tipo|Propiedad correspondiente a un Enum|true|enum (EXAMPLE_ONE, EXAMPLE_TWO)||
-|active|Marca de entidad activa|false|boolean||
-|vigenciaDesde|Fecha de vigencia desde|false|string (date-time)||
-|vigenciaHasta|Fecha de vigencia hasta|false|string (date-time)||
-|deleted|Marca de borrado|false|string||
-|version|Version de la entidad para control de concurrencia|false|integer (int32)||
 
 

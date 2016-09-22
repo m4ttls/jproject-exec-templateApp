@@ -5,6 +5,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.ResponseEntity;
 
 import com.curcico.jproject.core.wrapper.GridWrapper;
+import com.google.common.base.Predicate;
+import com.google.common.base.Predicates;
 
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
@@ -30,7 +32,6 @@ public class SwaggerConfiguration {
           	.paths(PathSelectors.any())
           	.build();                                           
     }
-	
 
     public ApiInfo getApiInfo() {
     	Contact contact = new Contact(	"Alejandro Daniel Curci", 

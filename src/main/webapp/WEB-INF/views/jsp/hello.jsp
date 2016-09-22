@@ -5,20 +5,19 @@
 <html lang="en">
 <head>
 	<title>jproject-templateApp</title>
-	 
-	<spring:url value="/resources/core/css/templateApp.css" var="coreCss" />
-	<spring:url value="/resources/core/css/bootstrap.min.css" var="bootstrapCss" />
 	
-	<spring:url value="/resources/core/js/templateApp.js" 	var="coreJs" />
-	<spring:url value="/resources/core/js/bootstrap.min.js" var="bootstrapJs" />
-	<spring:url value="/resources/core/js/jquery.min.js" 	var="jqueryJs" />
-	
-	<link href="${bootstrapCss}" rel="stylesheet" />
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" 		rel="stylesheet">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.min.css" rel="stylesheet" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
+
+	<spring:url value="/resources/core/css/templateApp.css" 	var="coreCss" />
+	<spring:url value="/resources/core/js/templateApp.js" 		var="coreJs" />
 	<link href="${coreCss}" rel="stylesheet" />
-	 
 	<script src="${coreJs}"></script>
-	<script src="${bootstrapJs}"></script>
-	<script src="${jqueryJs}"></script>
+	 
+
 </head>
  
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -42,7 +41,7 @@
 		<a class="btn btn-primary btn-lg" href="swagger-ui.html" role="button"><spring:message code="go.api" /></a>
 	</p>
     <p>
-		<a class="btn btn-danger btn-lg" href="secure/admin" role="button"><spring:message code="go.secure.page" /></a>
+		<a class="btn btn-danger btn-lg" href="secure/admin" role="button"><spring:message code="go.secure.page" /></a> User: user - Password: 123456
 	</p>
 	</div>
 </div>

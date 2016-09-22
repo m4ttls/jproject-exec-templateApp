@@ -1,9 +1,7 @@
-# Jproject Example API
+# Jproject Template App & API REST
 
 ## Overview
 This REST API example allows the user to manage domain objects. 
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur erat velit, cursus vitae justo vitae, vulputate sollicitudin nisi. In egestas sit amet justo sed bibendum. Quisque ante dolor, semper vitae urna ut, dignissim malesuada ex. Sed facilisis pellentesque eros, a fringilla enim aliquam nec. Cras sit amet ex feugiat, blandit purus at, aliquet eros. Pellentesque quis sodales tortor. Duis ut ex nisi. Praesent quis metus turpis. Mauris cursus tempor lectus non hendrerit. Maecenas tortor enim, dictum accumsan laoreet et, pretium a nunc.
 
 
 ### Version information
@@ -19,9 +17,9 @@ BasePath: /
 
 ### Tags
 
-* base-exception-controller: Base Exception Controller
-* ejemplo-controller: Operaciones sobre una entidad ejemplo.
+* foo-controller: Foo REST service.
 * error-controller: Error Controller
-* hello-controller: Hello Controller
+* base-exception-controller: Base Exception Controller
+* bar-controller: Foo's Bar REST service.
 
 

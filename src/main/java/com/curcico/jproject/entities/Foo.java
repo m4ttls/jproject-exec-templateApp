@@ -1,18 +1,23 @@
 package com.curcico.jproject.entities;
 
+import java.util.Collection;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
 
 import com.curcico.jproject.core.entities.TimeRangeEntity;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -22,9 +27,9 @@ import io.swagger.annotations.ApiModelProperty;
  *
  */
 @Entity
-@ApiModel(	value="value", 
-			description="description", 
-			reference="reference", 
+@ApiModel(	value="Foo", 
+			description="Foo entity", 
+			reference="Foo reference", 
 			parent=TimeRangeEntity.class)
 @Table(name = "TBL_FOO")
 @Where(clause="DELETED IS NULL")
@@ -39,6 +44,7 @@ public class Foo extends TimeRangeEntity {
 	private String code;
 	private String description;
 	private Type   type;
+	private Collection<Bar> bars;
 	
 	public Foo() {
 		super();
@@ -82,6 +88,17 @@ public class Foo extends TimeRangeEntity {
 	
 	public void setType(Type type) {
 		this.type = type;
+	}
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "foo")
+	@ApiModelProperty(value="Foo's type", required=true, position=3)
+	@JsonManagedReference(value="RELATION_FOO_BAR")
+	public Collection<Bar> getBars() {
+		return bars;
+	}
+	
+	public void setBars(Collection<Bar> bars) {
+		this.bars = bars;
 	}
 	
 	@Override

@@ -14,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.curcico.jproject.entities.Foo;
 import com.curcico.jproject.services.FooService;
+import com.curcico.jproject.webutils.controller.GenericsController;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import io.swagger.annotations.Api;
@@ -21,10 +22,10 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 
 @RestController
-@Api(description = "Operaciones sobre una entidad ejemplo.")
+@Api(description = "Foo REST service.")
 @RequestMapping(path = "/foos")
 public class FooController 
-	extends CommonsController<Foo, FooService> {
+	extends GenericsController<Foo, FooService> {
 
 
 	

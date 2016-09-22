@@ -1,5 +1,6 @@
 package com.curcico.jproject.config;
  
+import java.util.List;
 import java.util.Locale;
 
 import org.springframework.context.MessageSource;
@@ -8,6 +9,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
+import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -19,6 +22,8 @@ import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
+
+import com.curcico.jproject.webutils.utils.HibernateAwareObjectMapper;
  
 @EnableWebMvc
 @Configuration
@@ -86,5 +91,13 @@ public class SpringWebConfig extends WebMvcConfigurerAdapter {
 	interceptor.setParamName("lang");
 	registry.addInterceptor(interceptor);
     }
-	
+    
+    @Override
+    public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
+    	MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter();
+    	converter.setObjectMapper(new HibernateAwareObjectMapper());
+    	converters.add(converter);
+       	super.configureMessageConverters(converters);
+    }
+
 }

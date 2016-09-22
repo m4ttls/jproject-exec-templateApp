@@ -10,8 +10,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.curcico.jproject.webutils.controller.CommonController;
+
+import springfox.documentation.annotations.ApiIgnore;
+
 @Controller
-public class HelloController extends BaseController{
+@ApiIgnore
+public class HelloController extends CommonController{
 	
 	Logger logger = Logger.getLogger(getClass());
 
