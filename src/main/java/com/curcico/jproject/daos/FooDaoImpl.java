@@ -10,7 +10,7 @@ import com.curcico.jproject.core.daos.TimeRangeEntityDaoImpl;
 import com.curcico.jproject.entities.Foo;
 
 @Repository
-public class FooDaoImpl extends TimeRangeEntityDaoImpl<Foo	>
+public class FooDaoImpl extends TimeRangeEntityDaoImpl<Foo>
 							implements FooDao{
 	
 	
