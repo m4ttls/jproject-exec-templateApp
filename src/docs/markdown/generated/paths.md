@@ -299,40 +299,6 @@ POST /foos/{fooId}/bars
 
 * bar-controller
 
-### Return a Bar entity by Id 
-```
-GET /foos/{fooId}/bars/{id}
-```
-
-#### Parameters
-|Type|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|----|
-|PathParameter|fooId|Foo entity Id|true|integer (int32)||
-|PathParameter|id|Bar entity Id|true|integer (int32)||
-|QueryParameter|fetchs|Fetchs required|false|string||
-
-
-#### Responses
-|HTTP Code|Description|Schema|
-|----|----|----|
-|200|OK|Bar|
-|401|Unauthorized|No Content|
-|403|Forbidden|No Content|
-|404|Not Found|No Content|
-
-
-#### Consumes
-
-* application/json
-
-#### Produces
-
-* application/json;charset=UTF-8
-
-#### Tags
-
-* bar-controller
-
 ### Delete a Bars entity from de Foo's colleción.
 ```
 DELETE /foos/{fooId}/bars/{id}
@@ -362,6 +328,40 @@ DELETE /foos/{fooId}/bars/{id}
 #### Produces
 
 * */*
+
+#### Tags
+
+* bar-controller
+
+### Return a Bar entity by Id 
+```
+GET /foos/{fooId}/bars/{id}
+```
+
+#### Parameters
+|Type|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|----|
+|PathParameter|fooId|Foo entity Id|true|integer (int32)||
+|PathParameter|id|Bar entity Id|true|integer (int32)||
+|QueryParameter|fetchs|Fetchs required|false|string||
+
+
+#### Responses
+|HTTP Code|Description|Schema|
+|----|----|----|
+|200|OK|Bar|
+|401|Unauthorized|No Content|
+|403|Forbidden|No Content|
+|404|Not Found|No Content|
+
+
+#### Consumes
+
+* application/json
+
+#### Produces
+
+* application/json;charset=UTF-8
 
 #### Tags
 
@@ -402,39 +402,6 @@ PUT /foos/{fooId}/bars/{id}
 
 * bar-controller
 
-### Return a Foo entity by Id 
-```
-GET /foos/{id}
-```
-
-#### Parameters
-|Type|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|----|
-|PathParameter|id|Foo entity Id|true|integer (int32)||
-|QueryParameter|fetchs|Fetchs required|false|string||
-
-
-#### Responses
-|HTTP Code|Description|Schema|
-|----|----|----|
-|200|OK|Foo|
-|401|Unauthorized|No Content|
-|403|Forbidden|No Content|
-|404|Not Found|No Content|
-
-
-#### Consumes
-
-* application/json
-
-#### Produces
-
-* application/json;charset=UTF-8
-
-#### Tags
-
-* foo-controller
-
 ### Delete a Foo entity.
 ```
 DELETE /foos/{id}
@@ -463,6 +430,39 @@ DELETE /foos/{id}
 #### Produces
 
 * */*
+
+#### Tags
+
+* foo-controller
+
+### Return a Foo entity by Id 
+```
+GET /foos/{id}
+```
+
+#### Parameters
+|Type|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|----|
+|PathParameter|id|Foo entity Id|true|integer (int32)||
+|QueryParameter|fetchs|Fetchs required|false|string||
+
+
+#### Responses
+|HTTP Code|Description|Schema|
+|----|----|----|
+|200|OK|Foo|
+|401|Unauthorized|No Content|
+|403|Forbidden|No Content|
+|404|Not Found|No Content|
+
+
+#### Consumes
+
+* application/json
+
+#### Produces
+
+* application/json;charset=UTF-8
 
 #### Tags
 

@@ -17,9 +17,9 @@ BasePath: /
 
 ### Tags
 
-* foo-controller: Foo REST service.
-* error-controller: Error Controller
-* base-exception-controller: Base Exception Controller
 * bar-controller: Foo's Bar REST service.
+* base-exception-controller: Base Exception Controller
+* error-controller: Error Controller
+* foo-controller: Foo REST service.
 
 
