@@ -51,39 +51,6 @@ GET /errores/404
 
 * error-controller
 
-### getError
-```
-GET /exception/error
-```
-
-#### Parameters
-|Type|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|----|
-|QueryParameter|exception|exception|false|string||
-|QueryParameter|message|message|false|string||
-
-
-#### Responses
-|HTTP Code|Description|Schema|
-|----|----|----|
-|200|OK|object|
-|401|Unauthorized|No Content|
-|403|Forbidden|No Content|
-|404|Not Found|No Content|
-
-
-#### Consumes
-
-* application/json
-
-#### Produces
-
-* */*
-
-#### Tags
-
-* base-exception-controller
-
 ### setExtraInformationError
 ```
 POST /exception/error
@@ -118,6 +85,71 @@ POST /exception/error
 
 * base-exception-controller
 
+### getError
+```
+GET /exception/error
+```
+
+#### Parameters
+|Type|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|----|
+|QueryParameter|exception|exception|false|string||
+|QueryParameter|message|message|false|string||
+
+
+#### Responses
+|HTTP Code|Description|Schema|
+|----|----|----|
+|200|OK|object|
+|401|Unauthorized|No Content|
+|403|Forbidden|No Content|
+|404|Not Found|No Content|
+
+
+#### Consumes
+
+* application/json
+
+#### Produces
+
+* */*
+
+#### Tags
+
+* base-exception-controller
+
+### Create a new Foo entity.
+```
+POST /foos
+```
+
+#### Parameters
+|Type|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|----|
+|BodyParameter|entity|entity|true|Foo||
+
+
+#### Responses
+|HTTP Code|Description|Schema|
+|----|----|----|
+|201|Created|Foo|
+|401|Unauthorized|No Content|
+|403|Forbidden|No Content|
+|404|Not Found|No Content|
+
+
+#### Consumes
+
+* application/json;charset=UTF-8
+
+#### Produces
+
+* application/json;charset=UTF-8
+
+#### Tags
+
+* foo-controller
+
 ### Return a GridWrapper object with a Foo collection.
 ```
 GET /foos
@@ -150,38 +182,6 @@ GET /foos
 #### Consumes
 
 * application/json
-
-#### Produces
-
-* application/json;charset=UTF-8
-
-#### Tags
-
-* foo-controller
-
-### Create a new Foo entity.
-```
-POST /foos
-```
-
-#### Parameters
-|Type|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|----|
-|BodyParameter|entity|entity|true|Foo||
-
-
-#### Responses
-|HTTP Code|Description|Schema|
-|----|----|----|
-|201|Created|Foo|
-|401|Unauthorized|No Content|
-|403|Forbidden|No Content|
-|404|Not Found|No Content|
-
-
-#### Consumes
-
-* application/json;charset=UTF-8
 
 #### Produces
 
@@ -225,6 +225,39 @@ POST /foos/file
 
 * foo-controller
 
+### Create a new Bar entity in to Foo's collection.
+```
+POST /foos/{fooId}/bars
+```
+
+#### Parameters
+|Type|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|----|
+|PathParameter|fooId|Foo entity Id|true|integer (int32)||
+|BodyParameter|entity|Bar entity|true|Bar||
+
+
+#### Responses
+|HTTP Code|Description|Schema|
+|----|----|----|
+|201|Created|Bar|
+|401|Unauthorized|No Content|
+|403|Forbidden|No Content|
+|404|Not Found|No Content|
+
+
+#### Consumes
+
+* application/json;charset=UTF-8
+
+#### Produces
+
+* application/json;charset=UTF-8
+
+#### Tags
+
+* bar-controller
+
 ### Return a GridWrapper object with the Bar collection.
 ```
 GET /foos/{fooId}/bars
@@ -257,39 +290,6 @@ GET /foos/{fooId}/bars
 #### Consumes
 
 * application/json
-
-#### Produces
-
-* application/json;charset=UTF-8
-
-#### Tags
-
-* bar-controller
-
-### Create a new Bar entity in to Foo's collection.
-```
-POST /foos/{fooId}/bars
-```
-
-#### Parameters
-|Type|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|----|
-|PathParameter|fooId|Foo entity Id|true|integer (int32)||
-|BodyParameter|entity|Bar entity|true|Bar||
-
-
-#### Responses
-|HTTP Code|Description|Schema|
-|----|----|----|
-|201|Created|Bar|
-|401|Unauthorized|No Content|
-|403|Forbidden|No Content|
-|404|Not Found|No Content|
-
-
-#### Consumes
-
-* application/json;charset=UTF-8
 
 #### Produces
 
