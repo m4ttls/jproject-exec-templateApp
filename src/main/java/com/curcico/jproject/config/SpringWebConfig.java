@@ -1,8 +1,10 @@
 package com.curcico.jproject.config;
  
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Locale;
 
+import org.h2.server.web.WebServlet;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -59,8 +61,8 @@ public class SpringWebConfig extends WebMvcConfigurerAdapter {
 		viewResolver.setPrefix("/WEB-INF/views/jsp/");
 		viewResolver.setSuffix(".jsp");
 		return viewResolver;
-	}
- 
+	}	
+	
 	@Bean
 	public CommonsMultipartResolver multipartResolver() {
 	    CommonsMultipartResolver resolver=new CommonsMultipartResolver();

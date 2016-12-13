@@ -1,0 +1,1 @@
+INSERT INTO vwr_users (id, username, password) values (1, 'admin', 'admin'), (2, 'normal', 'normal');
