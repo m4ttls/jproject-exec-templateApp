@@ -23,7 +23,7 @@ public class HelloController extends CommonController{
 	@RequestMapping(value = { "/", "/welcome**" }, method = RequestMethod.GET)
 	public String printWelcome(ModelMap model, Locale locale) {
 		logger.error("TEST LOG");
-		model.addAttribute("message", getBundle("welcome.message", locale));
+		model.addAttribute("message", "Hola!");//getBundle("welcome.message", locale));
 		return "hello";
 	}
 

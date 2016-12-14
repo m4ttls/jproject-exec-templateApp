@@ -211,7 +211,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<version>1.4.2.RELEASE</version>
 				<configuration>
-					<mainClass>com.curcico.jproject.app.Application</mainClass>
+					<mainClass>com.curcico.jproject.config.Application</mainClass>
 					<layout>ZIP</layout>
 				</configuration>
 				<executions>

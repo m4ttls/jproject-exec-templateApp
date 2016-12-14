@@ -23,7 +23,9 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container">
 	<div class="navbar-header">
+	<!-- 
 		<a class="navbar-brand" href="#">${message}</a>
+	 -->
 	</div>
   </div>
 </nav>
@@ -32,7 +34,9 @@
   <div class="container">
 	<h2><spring:message code="title" /></h2>
 	<p> 
+	<!-- 
 		<spring:message code="welcome" />
+	 -->	
 		<c:if test="${not empty name}">
 			, ${name}
 		</c:if>
@@ -50,6 +54,7 @@
  
 	<div class="row">
 		<div class="col-md-12">
+		<!--  
 			<h2><spring:message code="messages" /></h2>
 			<table>
 			    <tr>
@@ -61,7 +66,7 @@
 			        <td><spring:message code="this.is.a.demo" /></td>
 			    </tr>
 			</table>
-			
+	-->		
 			<hr><br>
 			
 			<h2><spring:message code="properties" /></h2>

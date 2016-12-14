@@ -1,4 +1,4 @@
-package com.curcico.jproject.app;
+package com.curcico.jproject.config;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,6 +8,7 @@ import org.springframework.boot.web.support.SpringBootServletInitializer;
 @SpringBootApplication
 public class Application extends SpringBootServletInitializer {
 
+	/*
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
         // Customize the application or call application.sources(...) to add sources
@@ -15,7 +16,7 @@ public class Application extends SpringBootServletInitializer {
         // we actually don't need to override this method.
         return application;
     }
-
+*/
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }    

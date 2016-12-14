@@ -55,6 +55,33 @@
 			jQuery("#list2").jqGrid('navGrid','#pager2',{edit:false,add:false,del:false});
 		
 		});
+
+		$(document).ready(function() {
+			
+			jQuery("#users").jqGrid({ 
+				url: '<c:url value="/users"/>', 
+				datatype: "json", 
+				colNames:['Id','Username', 'Password'], 
+				colModel:[ {name:'id',			 index:'id' 			}, 
+				           {name:'username',		 index:'username' 			}, 
+				           {name:'password',	 index:'password'}], 
+				           rowNum:10, 
+				           rowList:[10,20,30],
+						   jsonReader : {
+								root : "rows",
+								page : "page",
+								total : "total",
+								records : "records"
+							},
+				           pager: '#pager2', 
+				           sortname: 'id', 
+				           viewrecords: true, 
+				           sortorder: "desc", 
+				           caption:"Users entities (JQrid Example)" }); 
+			
+			jQuery("#users").jqGrid('navGrid','#users2',{edit:false,add:false,del:false});
+		
+		});		
 		
 		</script>
 	</head>
@@ -86,5 +113,6 @@
 		<br>
 		<br>
 		<table id="list2"></table> <div id="pager2"></div>
+		<table id="users"></table> <div id="users2"></div>		
 	</body>
 </html>
